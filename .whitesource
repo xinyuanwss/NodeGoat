@@ -16,5 +16,14 @@
     "workflowRules": {
       "enabled": true
     }
-  }
+  },
+  "hostRules": [
+    {
+      "matchHost": "https://wsssupport.jfrog.io/artifactory/api/npm/wss-npm/",
+      "hostType": "npm",
+      "encrypted": {
+        "token": "wcDMA54OK5dCWQ/mAQv5ASxufgHwj5sozDfzoBwRM5RKOputusj8CZbK6+j/qZFhkdtCFxNzsc+FBRufPDhaqlef9N4s4xK3LjdtBW43i26Cs1sn8h0wfUP5zxyVnYoJlndDNRyvTfBesak3SJsHUcXPtfwQKUd7t5WsSDudlgPiRjIGHfCIBWdvc2rYJ9rdO4upi2V5FwiTcd62Wyfu9l6zF5vZN1FGtBpYfcFEcUHyAsGgJLqItaD9r43TcvWaM66lPxWGojFAgaFqGWAIHZXUN4nmfwc9tBm1TvVY6M+L88WtqIGmI8FyPamTuNfl6TOnCHwa9Om/YrNZfdFwu93gk+hnTkOqHNv/bcgRwTXJs6cd4q8eDv+VGU9ZMFtk/dSVM4Po0S+iODObg4r+eR4eaAlMeZ2s1bfcaXhIg1VfvfSo/yN4h/ylWXF/s4JbCXhkds4vfz/NpTEsjq+dEpYgIEJnbbuElZqJkkQxvnfNnV7OXu4l/zTQl701D4NOEpRUsaGU8wagJMMldJ2m0qUB7DXTXNG1cCRYktVC/Y0yEvTLqgf8uADyzl4D2Gu7r0tiNjJN/oLZXxLayfMK95G4/TznGOMeiXompEBRS3pIQeXEsaqk5+0BPqu48WIwbrXwGUPkzFc7up7LyFH3KX4UZGLTg3oSMXFPKB+EaSnh1hkawhCOvPgRuVEIIkTs2i49U9j6bGpxbiuxZqrfsEjw60GNFjFLiEV8ibA+eOo+Px0oex0"
+      }
+    }
+  ]
 }
