@@ -1,0 +1,44 @@
+name: Build docker image and run Whitesource UA Scan
+
+on:
+  push:
+    branches: [ master* ]
+  pull_request:
+    branches: [ master* ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '8'
+        distribution: 'adopt'
+    - name: Cache local Maven repository
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+    - name: WhiteSource Unified Agent Scan
+      env:
+        GITHUB_TOKEN: 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
+        WS_APIKEY: df61087c557647818cadf4be6d9df4ba53eec0a12e9341e58113ee3a10324bb8
+        WS_USERKEY: dc6e6dc564c342119bf287b861750b206c3e1ed0e23e4b81a6dabb9c43450725
+        WS_WSS_URL: https://saas.whitesourcesoftware.com/agent
+        WS_PRODUCTNAME: GH_${{github.event.repository.name}}
+        WS_PROJECTNAME: ${{github.ref}}_action
+        WS_RESOLVEALLDEPENDENCIES: true
+        WS_GENERATEPROJECTDETAILSJSON: true
+        WS_DOCKER_SCANIMAGES: true
+        WS_DOCKER_INCLUDES: ghcr.io/xinyuanwss/nodegoat-build
+      run: |
+        docker build -t ghcr.io/xinyuanwss/nodegoat-build:latest -f Dockerfile
+        curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
+        echo Unified Agent downloaded successfully
+        java -jar wss-unified-agent.jar -loglevel debug
