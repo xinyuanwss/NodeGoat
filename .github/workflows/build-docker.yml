@@ -42,3 +42,4 @@ jobs:
         curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
         echo Unified Agent downloaded successfully
         java -jar wss-unified-agent.jar -loglevel debug
+        cat /home/runner/work/NodeGoat/NodeGoat/./whitesource/scanProjectDetails.json
