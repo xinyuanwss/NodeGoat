@@ -38,7 +38,7 @@ jobs:
         WS_DOCKER_SCANIMAGES: true
         WS_DOCKER_INCLUDES: ghcr.io/xinyuanwss/nodegoat-build
       run: |
-        docker build -t ghcr.io/xinyuanwss/nodegoat-build:latest -f Dockerfile
+        docker build -t ghcr.io/xinyuanwss/nodegoat-build:latest .
         curl -LJO https://unified-agent.s3.amazonaws.com/wss-unified-agent.jar
         echo Unified Agent downloaded successfully
         java -jar wss-unified-agent.jar -loglevel debug
